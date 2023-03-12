@@ -9,6 +9,8 @@ In terms of Snowfish server naming, [we follow the Matrix spec here](https://spe
 
 However, unlike the Matrix spec, we have case-insensitivity for server naming.
 
+Snowfish endpoints, unlike user ones, should have **reliable** integers instead of the normal unreliable.
+
 ## Authorizing Snowfish Servers
 
 ### `/_snowfish/v0/server`
@@ -54,7 +56,6 @@ requests to the external server's pub endpoint after this.
 * `server`: Valid server name.
 * `signature`: Valid signature, should be verifiable with `key`. Should be encoded with base64.
 
-
 #### Returns
 
 | field name    | type     |
@@ -72,6 +73,78 @@ However, they **are not** able to create guilds on external Snowfishes.
 
 For a user to join external guilds, they **must** provide an invite created on the external Snowfish.
 
-### `/_snowfish/v0/guilds/:id/preview`
+On `_snowfish` endpoints, the ids of Guilds are stringified into the following:
 
-Gets a short preview of this Guild.
+```txt
+:id = (:integer_guild_id : :server_name)
+```
+
+Something like `1234567890:crowdle.org`.
+
+### `/_snowfish/v0/guilds/push`
+
+Pushes an event to a Guild.
+
+| field name    | type     |
+| ------------- | -------- |
+| _origin       | string   |
+| _ts           | integer  |
+| _ev           | string   |
+| signature     | string   |
+| origin_user   | user     |
+| guild_id      | integer  |
+| data          | object   |
+
+* `_origin`: **Must** be the originating server.
+* `_ts`: The event timestamp.
+* `_ev`: The event type being sent. Must follow the Snowfish event type proclamation.
+* `signature`: Signature following the originating server's key.
+* `origin_user`: The user invoking this event.
+* `guild_id`: Where this event is being sent.
+* `data`: The valid event data, in contrast with `_ev`.
+
+#### Example
+
+```json
+{
+    "_origin": "http://crowdle.org",
+    "_ts": 1234567890,
+    "_ev": "gc.message_create",
+    "signature": "...",
+    "origin_user": {
+        "id": 1234567890,
+        "username": "VincentRPS",
+        "discriminator": "0000",
+        "flags": 0
+    },
+    "guild_id": 1234567890,
+    "data": {
+        "id": 1234567890,
+        "author_id": 1234567890,
+        "channel_id": 1234567890,
+        "content": "Good Morning!",
+        "timestamp": 1678599385,
+        "edited_timestamp": null
+    }
+}
+```
+
+#### Errors
+
+If an error occurs, such as permissions or other such, the server must return a detailed
+exemplementation structured like so:
+
+```json
+{
+    "t": "failure",
+    "errors": [
+        {
+            "e": "origin_user",
+            "_errors": [
+                "Forbidden Permissions",
+                "Not a member of this guild"
+            ]
+        }
+    ]
+}
+```

@@ -14,6 +14,7 @@ Bots are simply just users with a special flag.
 | flags         | integer  |
 
 * `discriminator`: **Must** be a 4 length integer wrapped with a string.
+* `email`: Should only be shown within the home Snowfish.
 * `flags`: **Must** follow the user flag standard.
 
 ## User Flags

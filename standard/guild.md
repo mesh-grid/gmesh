@@ -15,6 +15,7 @@ like `1234567890:crowdle.org` or `developers:crowdle.org`.
 | owner_id      | integer  |
 | ?flags        | integer  |
 | permissions?  | integer  |
+| snowfish      | string   |
 
 
 * `owner_id`: This **must** be a user present on the platform that the Guild is located in.
@@ -22,6 +23,7 @@ like `1234567890:crowdle.org` or `developers:crowdle.org`.
 * `permissions`:
     - If present, must be a bitwise integer following the permissions standard.
     - If over 64 bits, **must** be converted to a string.
+* `snowfish`: **Must** be a valid Snowfish server name.
 
 ## Guild Flags
 
@@ -46,4 +48,4 @@ Bitwise-based integer flags for Guilds.
 | snowfish   | string   |
 
 * `user_id`: **Must** be a user present on `snowfish`.
-* `snowfish`: **Must** be a valid IP or domain to the Snowfish protocol.
+* `snowfish`: **Must** be a valid Snowfish server name.

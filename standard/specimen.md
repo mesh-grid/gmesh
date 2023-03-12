@@ -18,4 +18,4 @@ Collected from `/specimen`. i.e. `crowdle.org/specimen`
 If, within a span of time, a server tries to give 1mb+ of data within this chamber,
 the server will be called abusive and stunned.
 
-Specimen information can be cached, at max, for 30 minutes.
+Specimen information can be cached, at maximum, for 30 minutes.

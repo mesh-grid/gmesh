@@ -28,3 +28,5 @@ Sometimes we may use characters in the standard to symbolize different things.
 ## Unique Integer-based IDs
 
 To generate unique yet short IDs, Crowdle uses Twitter's Snowflake ID.
+
+To prevent user grief as well, user endpoints must provide **unreliable integers**. (integers which turn into strings when they go over 32 bits).
