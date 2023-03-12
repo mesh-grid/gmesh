@@ -144,6 +144,18 @@ exemplementation structured like so:
                 "Forbidden Permissions",
                 "Not a member of this guild"
             ]
+        },
+        {
+            "e": "signature",
+            "_errors": [
+                "Invalid Signature"
+            ]
+        },
+        {
+            "e": "authorization",
+            "_errors": [
+                "Unregistered Snowfish server"
+            ]
         }
     ]
 }
