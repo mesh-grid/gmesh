@@ -1,18 +1,19 @@
 # User - You!
 
-Users make the backbone of Crowdle. They power, and do all the actions on the platform.
+Users make the backbone of Murcurial. They power, and do all the actions on the platform.
 Bots are simply just users with a special flag.
 
 ## User Object
 
 | field name    | type     |
 | ------------- | -------- |
-| id            | integer  |
+| id            | string   |
 | username      | string   |
 | discriminator | string   |
 | email         | string   |
 | flags         | integer  |
 
+* `id`: **Must** follow the Murcurial user format.
 * `discriminator`: **Must** be a 4 length integer wrapped with a string.
 * `email`: Should only be shown within the home Snowfish.
 * `flags`: **Must** follow the user flag standard.

@@ -2,7 +2,7 @@
 
 ## Specimen Information
 
-Collected from `/specimen`. i.e. `crowdle.org/specimen`
+Collected from `/specimen`. i.e. `murcurial.com/specimen`
 
 | field name | type     |
 | ---------- | -------- |

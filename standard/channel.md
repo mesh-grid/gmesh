@@ -6,11 +6,12 @@ Channels are decentralized portals for messages.
 
 | field name | type     |
 | ---------- | -------- |
-| id         | integer  |
+| id         | string   |
 | name       | string   |
 | guild_id   | integer  |
 | !parent_id | integer  |
 
+* `id`: **Must** follow the Murcurial channel format.
 * `guild_id`: **Must** be a valid guild.
 * `parent_id`: If present, **must** be a valid channel.
 
@@ -18,12 +19,13 @@ Channels are decentralized portals for messages.
 
 | field name        | type     |
 | ----------------- | -------- |
-| id                | integer  |
+| id                | string   |
 | author_id         | integer  |
 | channel_id        | integer  |
 | content           | string   |
 | timestamp         | integer  |
 | !edited_timestamp | integer  |
 
+* `id`: **Must** follow the Murcurial message format.
 * `author_id`: **Must** be a valid user.
 * `channel_id`: **Must** be a valid channel.

@@ -1,6 +1,6 @@
 # Snowfish - System of Federation
 
-Crowdle relies upon a system of global federation called Snowfish.
+Murcurial relies upon a system of global federation called Snowfish.
 
 The [Specimen] standard already explains how Snowfish systems communicate versioning,
 and many miscellaneous things. But, this now is further more for communication directly.
@@ -79,7 +79,7 @@ On `_snowfish` endpoints, the ids of Guilds are stringified into the following:
 :id = (:integer_guild_id : :server_name)
 ```
 
-Something like `1234567890:crowdle.org`.
+Something like `1234567890:murcurial.com`.
 
 ### `/_snowfish/v0/guilds/push`
 
@@ -107,7 +107,7 @@ Pushes an event to a Guild.
 
 ```json
 {
-    "_origin": "http://crowdle.org",
+    "_origin": "http://murcurial.com",
     "_ts": 1234567890,
     "_ev": "gc.message_create",
     "signature": "...",

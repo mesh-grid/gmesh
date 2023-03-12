@@ -1,16 +1,16 @@
 # Guild - Rooms for Communities
 
-Guilds in Crowdle are treated like if a community. They have members, those members have presences, and more.
+Guilds in Murcurial are treated like if a community. They have members, those members have presences, and more.
 
 ## Guild Object
 
 Guilds can be referred to on the platform via a uniquely made invite code, or id
-like `1234567890:crowdle.org` or `developers:crowdle.org`.
+like `1234567890:murcurial.com` or `developers:murcurial.com`.
 
 
 | field name    | type     |
 | ------------- | -------- |
-| id            | integer  |
+| id            | string   |
 | name          | string   |
 | owner_id      | integer  |
 | ?flags        | integer  |
@@ -18,6 +18,7 @@ like `1234567890:crowdle.org` or `developers:crowdle.org`.
 | snowfish      | string   |
 
 
+* `id`: **Must** follow the Murcurial guild format.
 * `owner_id`: This **must** be a user present on the platform that the Guild is located in.
 * `flags`: If present, must be a bitwise integer following the flags standard.
 * `permissions`:
@@ -42,8 +43,8 @@ Bitwise-based integer flags for Guilds.
 
 | field name | type     |
 | ---------- | -------- |
-| user_id    | integer  |
-| guild_id   | integer  |
+| user_id    | string   |
+| guild_id   | string   |
 | !nick      | string   |
 | snowfish   | string   |
 
