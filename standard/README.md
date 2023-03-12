@@ -24,3 +24,7 @@ Sometimes we may use characters in the standard to symbolize different things.
 - ? - This may be undefined
 - !? - This may be undefined or null
 - !! - This is required
+
+## Unique Integer-based IDs
+
+To generate unique yet short IDs, Crowdle uses Twitter's Snowflake ID.

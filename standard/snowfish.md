@@ -33,6 +33,7 @@ Gives the servers current public ed25519 key.
 
 * `signature`: **Must** be a base64-encoded signature signed with `key`.
 * `key`: **Must** be a base64-encoded ed25519 public key.
+* `expire_sec`: **Must** be a UTC-based UNIX timestamp set in the future.
 
 `expire_sec` must be used by other Snowfish servers to know when to re-request for public keys.
 
@@ -61,7 +62,7 @@ requests to the external server's pub endpoint after this.
 | expires_sec   | integer  |
 | token         | string   |
 
-* `expires_sec`: When this token will expire in a UTC-based UNIX timestamp.
+* `expires_sec`: When this token will expire in a UTC-based UNIX timestamp. At minimum, must be at least 4 minutes in the future.
 * `token`: This can be of minimum 1 length, and maximum 124.
 
 ## External Guilds
