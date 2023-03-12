@@ -13,7 +13,7 @@ like `1234567890:crowdle.org` or `developers:crowdle.org`.
 | id            | integer  |
 | name          | string   |
 | owner_id      | integer  |
-| flags?        | integer  |
+| ?flags        | integer  |
 | permissions?  | integer  |
 
 
@@ -35,3 +35,30 @@ Bitwise-based integer flags for Guilds.
 | nightly   | 3     |
 
 * `nightly`: If present, this guild **must** have nightly-enabled features activated.
+
+## Member Object
+
+| field name | type     |
+| ---------- | -------- |
+| user_id    | integer  |
+| guild_id   | integer  |
+| !nick      | string   |
+| snowfish   | string   |
+
+* `user_id`: **Must** be a user present on `snowfish`.
+* `snowfish`: **Must** be a valid IP or domain to the Snowfish protocol.
+
+## Extrinsic Member Object
+
+When a user joins a foreign guild, the Snowfish holding the user must know
+what events go to them. So, the Snowfish system of federation constitutes this.
+
+| field name | type     |
+| ---------- | -------- |
+| user_id    | integer  |
+| guild_id   | integer  |
+| snowfish   | string   |
+
+* `user_id`: **Must** be a user present on the current Snowfish.
+* `guild_id`: **Must** be a guild present on `snowfish`.
+* `snowfish`: **Must** be a valid IP or domain to the Snowfish protocol.

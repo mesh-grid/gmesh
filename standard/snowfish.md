@@ -1,3 +1,76 @@
 # Snowfish - System of Federation
 
-todo!()
+Crowdle relies upon a system of global federation called Snowfish.
+
+The [Specimen] standard already explains how Snowfish systems communicate versioning,
+and many miscellaneous things. But, this now is further more for communication directly.
+
+In terms of Snowfish server naming, [we follow the Matrix spec here](https://spec.matrix.org/v1.6/appendices/#server-name).
+
+However, unlike the Matrix spec, we have case-insensitivity for server naming.
+
+## Authorizing Snowfish Servers
+
+### `/_snowfish/v0/server`
+
+Gives an external Snowfish server insight into this Snowfish server.
+
+| field name | type     |
+| ---------- | -------- |
+| location   | string   |
+
+* `location`: **Must** be a valid server name, and **must** be used for Snowfish requests.
+
+### `/_snowfish/v0/pub`
+
+Gives the servers current public ed25519 key.
+
+| field name | type     |
+| ---------- | -------- |
+| expire_sec | integer  |
+| signature  | string   |
+| key        | string   |
+
+* `signature`: **Must** be a base64-encoded signature signed with `key`.
+* `key`: **Must** be a base64-encoded ed25519 public key.
+
+`expire_sec` must be used by other Snowfish servers to know when to re-request for public keys.
+
+The `key` identifies whether you are the server sending a valid event, requesting to join a guild, or other such.
+
+### `/_snowfish/v0/target`
+
+**RATE-LIMIT**: 3/10 minutes. Should be cached by servers.
+
+Used by servers to get keys. It should be expected that the server being requested
+requests to the external server's pub endpoint after this.
+
+| field name | type     |
+| ---------- | -------- |
+| server     | string   |
+| signature  | string   |
+
+* `server`: Valid server name.
+* `signature`: Valid signature, should be verifiable with `key`. Should be encoded with base64.
+
+
+#### Returns
+
+| field name    | type     |
+| ------------- | -------- |
+| expires_sec   | integer  |
+| token         | string   |
+
+* `expires_sec`: When this token will expire in a UTC-based UNIX timestamp.
+* `token`: This can be of minimum 1 length, and maximum 124.
+
+## External Guilds
+
+Users, being who they are, are allowed to join external guilds.
+However, they **are not** able to create guilds on external Snowfishes.
+
+For a user to join external guilds, they **must** provide an invite created on the external Snowfish.
+
+### `/_snowfish/v0/guilds/:id/preview`
+
+Gets a short preview of this Guild.
