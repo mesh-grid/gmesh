@@ -1,13 +1,13 @@
 # Snowfish - System of Federation
 
-Murcurial relies upon a system of global federation called Snowfish.
+Gmesh relies upon a system of global federation called Snowfish.
 
 The [Specimen] standard already explains how Snowfish systems communicate versioning,
 and many miscellaneous things. But, this now is further more for communication directly.
 
 In terms of Snowfish server naming, [we follow the Matrix spec here](https://spec.matrix.org/v1.6/appendices/#server-name).
 
-However, unlike the Matrix spec, we have case-insensitivity for server naming.
+However, unlike the Matrix spec, we have case-insensitivity for server naming, and server names must be 40 or less characters.
 
 Snowfish endpoints, unlike user ones, should have **reliable** integers instead of the normal unreliable.
 
@@ -79,7 +79,7 @@ On `_snowfish` endpoints, the ids of Guilds are stringified into the following:
 :id = (:integer_guild_id : :server_name)
 ```
 
-Something like `1234567890:murcurial.com`.
+Something like `1234567890:gmesh.org`.
 
 ### `/_snowfish/v0/guilds/push`
 
@@ -107,20 +107,20 @@ Pushes an event to a Guild.
 
 ```json
 {
-    "_origin": "http://murcurial.com",
+    "_origin": "gmesh.org",
+    "_proto": "https",
     "_ts": 1234567890,
-    "_ev": "gc.message_create",
+    "_ev": "m.send",
     "signature": "...",
-    "origin_user": {
-        "id": 1234567890,
-        "username": "VincentRPS",
-        "discriminator": "0000",
-        "flags": 0
-    },
     "guild_id": 1234567890,
     "data": {
         "id": 1234567890,
-        "author_id": 1234567890,
+        "author": {
+            "id": "VincentRPS",
+            "username": "VincentRPS",
+            "discriminator": "0000",
+            "flags": 0
+        },
         "channel_id": 1234567890,
         "content": "Good Morning!",
         "timestamp": 1678599385,

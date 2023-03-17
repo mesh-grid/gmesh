@@ -2,7 +2,7 @@
 
 ## Specimen Information
 
-Collected from `/specimen`. i.e. `murcurial.com/specimen`
+Collected from `/specimen`. i.e. `gmesh.org/specimen`
 
 | field name | type     |
 | ---------- | -------- |

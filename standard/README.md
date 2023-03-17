@@ -1,6 +1,6 @@
 # Standard - v0.1.0: Nightly
 
-Murcurial is a federated social media platform for text, voice, and posted communications.
+Gmesh is a federated social media platform for text, voice, and posted communications.
 It's similar to Discord, Reddit, and Facebook, as in it's design but different in its implementation 
 as to be more public and federated.
 
@@ -13,7 +13,7 @@ its stable release and publicization.
 
 ## Why Standardize?
 
-Simply to support custom implementations. Want to make your own Murcurial implementation? You can do it!
+Simply to support custom implementations. Want to make your own Gmesh implementation? You can do it!
 Just follow the standard.
 
 ## Symbols
@@ -27,13 +27,13 @@ Sometimes we may use characters in the standard to symbolize different things.
 
 ## Unique Integer-based IDs
 
-To generate unique yet short IDs, Murcurial uses Twitter's Snowflake ID.
+To generate unique yet short IDs, Gmesh uses Twitter's Snowflake ID.
 
 To prevent user grief as well, user endpoints must provide **unreliable integers**. (integers which turn into strings when they go over 32 bits).
 
 ## Formats
 
-Since IDs are stored as strings, they can also be 
+Since IDs are stored as strings. Max length for these names are 100 characters.
 
 ### User IDs
 
@@ -41,7 +41,7 @@ Since IDs are stored as strings, they can also be
 id = ( user_id|username#discriminator @ server_name )
 ```
 
-Example: `1234567890@murcurial.com`|`VincentRPS#0000@murcurial.com`
+Example: `1234567890@gmesh.org`|`VincentRPS#0000@gmesh.org`
 
 ### Guild IDs
 
@@ -52,7 +52,7 @@ guild_id = snowflake_id = integer
 invite_id = string
 ```
 
-Example: `1234567890:murcurial.com`|`developers:murcurial.com`
+Example: `1234567890:gmesh.org`|`developers:gmesh.org`
 
 ### Channel IDs
 
@@ -63,7 +63,7 @@ channel_id = snowflake_id = integer
 guild_id = snowflake_id = integer
 ```
 
-Example: `1234567890#1234567890:murcurial.com`
+Example: `1234567890#1234567890:gmesh.org`
 
 ### Message IDs
 
@@ -75,4 +75,4 @@ channel_id = snowflake_id = integer
 guild_id = snowflake_id = integer
 ```
 
-Example: `1234567890@1234567890#1234567890:murcurial.com`
+Example: `1234567890@1234567890#1234567890:gmesh.org`

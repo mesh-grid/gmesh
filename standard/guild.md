@@ -1,11 +1,11 @@
 # Guild - Rooms for Communities
 
-Guilds in Murcurial are treated like if a community. They have members, those members have presences, and more.
+Guilds in Gmesh are treated like if a community. They have members, those members have presences, and more.
 
 ## Guild Object
 
 Guilds can be referred to on the platform via a uniquely made invite code, or id
-like `1234567890:murcurial.com` or `developers:murcurial.com`.
+like `1234567890:gmesh.org` or `developers:gmesh.org`.
 
 
 | field name    | type     |
@@ -18,7 +18,7 @@ like `1234567890:murcurial.com` or `developers:murcurial.com`.
 | snowfish      | string   |
 
 
-* `id`: **Must** follow the Murcurial guild format.
+* `id`: **Must** follow the Gmesh guild format.
 * `owner_id`: This **must** be a user present on the platform that the Guild is located in.
 * `flags`: If present, must be a bitwise integer following the flags standard.
 * `permissions`:

@@ -11,7 +11,7 @@ Channels are decentralized portals for messages.
 | guild_id   | integer  |
 | !parent_id | integer  |
 
-* `id`: **Must** follow the Murcurial channel format.
+* `id`: **Must** follow the Gmesh channel format.
 * `guild_id`: **Must** be a valid guild.
 * `parent_id`: If present, **must** be a valid channel.
 
@@ -26,6 +26,6 @@ Channels are decentralized portals for messages.
 | timestamp         | integer  |
 | !edited_timestamp | integer  |
 
-* `id`: **Must** follow the Murcurial message format.
+* `id`: **Must** follow the Gmesh message format.
 * `author_id`: **Must** be a valid user.
 * `channel_id`: **Must** be a valid channel.
